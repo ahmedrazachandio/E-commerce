@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(5);
                                          
-        return view('products.index',compact('products'))
+        return view('admin.products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
      
@@ -30,7 +30,7 @@ class ProductController extends Controller
     {
         $categories = Category::latest()->paginate(5);
                                          
-        return view('products.create',compact('categories'))
+        return view('admin.products.create',compact('categories'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     
@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit',compact('product'));
+        return view('admin.products.edit',compact('product'));
     }
     
     /**

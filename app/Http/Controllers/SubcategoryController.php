@@ -17,7 +17,7 @@ class SubcategoryController extends Controller
     {
         $subcategories = subcategory::latest()->paginate(5);
                                          
-        return view('subcategories.index',compact('subcategories'))
+        return view('admin.subcategories.index',compact('subcategories'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
      
@@ -30,7 +30,7 @@ class SubcategoryController extends Controller
     {
         $categories = Category::latest()->paginate(5);
                                          
-        return view('subcategories.create',compact('categories'))
+        return view('admin.subcategories.create',compact('categories'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
         
     }
@@ -75,7 +75,8 @@ class SubcategoryController extends Controller
      */
     public function edit(Subcategory $subcategory)
     {
-        return view('subcategories.edit',compact('subcategory'));
+        
+        return view('admin.subcategories.edit',compact('subcategory'));
     }
     
     /**

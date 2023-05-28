@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Category</h2>
+            <h2>Add New Subcategory</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('subcategories.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
     </div>
 @endif
    
-<form action="{{ route('categories.store') }}" method="POST">
+<form action="{{ route('subcategories.store') }}" method="POST">
     @csrf
   
      <div class="row">
@@ -35,11 +35,20 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Slug</strong>
+                <strong>Slug:</strong>
                 <input type="text" name="slug" class="form-control" placeholder="slug">
             </div>
         </div>
-        
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Category Id:</strong>
+                <select name="category_id" id="category" class="form-control">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Status:</strong>

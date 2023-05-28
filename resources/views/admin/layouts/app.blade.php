@@ -16,7 +16,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
     <base href="../" />
-    <title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
+    <title>Metronic</title>
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -1975,44 +1975,10 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Content wrapper-->
                     <div class="d-flex flex-column flex-column-fluid">
                         <!--begin::Toolbar-->
-                        <div id="kt_app_toolbar" class="app-toolbar pt-7 pt-lg-10">
+                        <div id="kt_app_toolbar" class="app-toolbar">
                             <!--begin::Toolbar container-->
                             <div id="kt_app_toolbar_container"
                                 class="app-container container-fluid d-flex align-items-stretch">
-                                <!--begin::Toolbar wrapper-->
-                                <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
-                                    <!--begin::Page title-->
-                                    <div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
-
-                                        <!--begin::Breadcrumb-->
-                                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
-                                            <!--begin::Item-->
-                                            <li class="breadcrumb-item text-muted">
-                                                <a href="../../demo49/dist/index.html"
-                                                    class="text-muted text-hover-primary">Home</a>
-                                            </li>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <li class="breadcrumb-item">
-                                                <span class="bullet bg-gray-400 w-5px h-2px"></span>
-                                            </li>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <li class="breadcrumb-item text-muted">Create</li>
-                                            <!--end::Item-->
-                                        </ul>
-                                        <!--end::Breadcrumb-->
-                                    </div>
-                                    <!--end::Page title-->
-                                    <!--begin::Actions-->
-                                    <div class="d-flex align-items-center gap-2 gap-lg-3">
-                                        <a href="#"
-                                            class="btn btn-flex btn-outline btn-color-gray-700 btn-active-color-primary bg-body h-40px fs-7 fw-bold"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">Back</a>
-                                        </div>
-                                        <!--end::Actions-->
-                                </div>
-                                <!--end::Toolbar wrapper-->
                             </div>
                             <!--end::Toolbar container-->
                         </div>

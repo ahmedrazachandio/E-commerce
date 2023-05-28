@@ -24,6 +24,11 @@ Route::resource('subcategories', SubcategoryController::class);
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('admin/create', function () {
-    return view('admin.categories.create');
-});
+
+
+
+// Route::get("admin/categories/create",[CategoryController::class,'create']);
+// Route::post("admin/categories/create",[CategoryController::class,'store']);
+// Route::get("admin/categories/",[CategoryController::class,'index']);
+// Route::get("admin/categories/",[CategoryController::class,'edit']);
+
