@@ -75,8 +75,12 @@ class SubcategoryController extends Controller
      */
     public function edit(Subcategory $subcategory)
     {
+        $categories = Category::latest()->paginate(5);
+                                         
+        return view('admin.subcategories.edit',compact('categories'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
         
-        return view('admin.subcategories.edit',compact('subcategory'));
+        
     }
     
     /**
