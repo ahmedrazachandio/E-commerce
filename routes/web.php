@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\UserController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +35,11 @@ Route::get('/', function () {
 // Route::get("admin/categories/",[CategoryController::class,'index']);
 // Route::get("admin/categories/",[CategoryController::class,'edit']);
 
+
+
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
