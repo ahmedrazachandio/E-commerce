@@ -2,10 +2,10 @@
   
 namespace App\Http\Controllers;
    
-use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
   
-class categoryController extends Controller
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class categoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->paginate(5);
+        $users = User::latest()->paginate(5);
                                          
-        return view('admin.categories.index',compact('categories'))
+        return view('admin.users.index',compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
      
@@ -28,7 +28,7 @@ class categoryController extends Controller
     public function create()
     {
         
-        return view('admin.categories.create');
+        return view('admin.users.create');
     }
     
     /**
@@ -40,15 +40,15 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'slug' => 'required',
-            'status' => 'required',
+            'fullname' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
     
-        Category::create($request->all());
+        User::create($request->all());
      
-        return redirect()->route('categories.index')
-                        ->with('success','category created successfully.');
+        return redirect()->route('users.index')
+                        ->with('success','user created successfully.');
     }
      
     /**
@@ -57,20 +57,20 @@ class categoryController extends Controller
      * @param  \App\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(User $user)
     {
-        return view('categories.show',compact('category'));
+        return view('users.show',compact('user'));
     } 
      
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\category  $category
+     * @param  \App\user  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(User $user)
     {
-        return view('admin.categories.edit',compact('category'));
+        return view('admin.users.edit',compact('user'));
     }
     
     /**
@@ -80,31 +80,31 @@ class categoryController extends Controller
      * @param  \App\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, User $user)
     {
         $request->validate([
-            'title' => 'required',
-            'slug' => 'required',
-            'status' => 'required',
+            'fullname' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
     
-        $category->update($request->all());
+        $user->update($request->all());
     
-        return redirect()->route('categories.index')
-                        ->with('success','category updated successfully');
+        return redirect()->route('users.index')
+                        ->with('success','user updated successfully');
     }
     
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\category  $category
+     * @param  \App\user  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(User $user)
     {
-        $category->delete();
+        $user->delete();
     
-        return redirect()->route('categories.index')
-                        ->with('success','category deleted successfully');
+        return redirect()->route('users.index')
+                        ->with('success','user deleted successfully');
     }
 }

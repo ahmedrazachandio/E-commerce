@@ -13,7 +13,7 @@
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
                     <a href="../../demo49/dist/index.html"
-                        class="text-muted text-hover-primary">Home</a>
+                        class="text-muted text-hover-primary">Categories</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -22,7 +22,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Create</li>
+                <li class="breadcrumb-item text-muted">home</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -67,7 +67,7 @@
                 <tbody class="fs-6 fw-semibold text-gray-600">
                     @foreach ($categories as $category)
                     <tr>
-                        <td class="ps-9">{{$i ++}}</td>
+                        <td class="ps-9">{{ ++$i }}</td>
                         <td data-bs-target="license" class="ps-0">{{$category->title}}</td>
                         <td data-bs-target="license" class="ps-0">{{$category->slug}}</td>
                       

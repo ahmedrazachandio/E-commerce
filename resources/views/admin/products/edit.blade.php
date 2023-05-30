@@ -103,11 +103,11 @@
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
                             <!--begin::Input-->
-                            <select name="category" value="{{$product->category}}" aria-label="Select a Language" data-control="select2" class="form-select form-select-solid form-select-lg">
-                                <option value="">Select a Language...</option>
-                                {{-- @foreach ($categories as $category) --}}
-                                <option value="{{$product->category}}">{{$product->category}}</option>
-                                {{-- @endforeach --}}
+                            <select name="category" aria-label="Select a Language" data-control="select2" class="form-select form-select-solid form-select-lg">
+                                <option value="">slect one</option>
+                                @foreach ($categories as $category)
+                                <option @if($product->category == $category->id) selected @endif value="{{ $category->id }}">{{ $category->title }}</option>
+                                @endforeach
 
                             </select>
                             <!--end::Input-->

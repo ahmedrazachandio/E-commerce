@@ -77,7 +77,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit',compact('product'));
+        $categories = Category::latest()->paginate(5);
+        return view('admin.products.edit',compact('product','categories'));
     }
     
     /**

@@ -1,5 +1,10 @@
 @extends('admin.layouts.app')
 @section('content')
+<style>
+    .error{
+        color: red
+    }
+</style>
     <!--begin::Basic info-->
     <div class="card mb-5 mb-xl-10 pt-5 px-5">
            <!--begin::Toolbar wrapper-->
@@ -44,6 +49,7 @@
                 @method('PUT')        
                 <!--begin::Card body-->
                 <div class="card-body p-9">
+
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
@@ -53,6 +59,9 @@
                         <div class="col-lg-8 fv-row">
                             <input type="text" name="title" value="{{$subcategory->title}}" class="form-control form-control-lg form-control-solid"
                                 placeholder="Enter Title"  required/>
+                                @if($errors->has('title'))
+                                    <div class="error">{{ $errors->first('title') }}</div>
+                                @endif
                         </div>
                         <!--end::Col-->
                     </div>
@@ -77,11 +86,11 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row" >
-                            <select name="category_id" value="{{$subcategory->category_id}}" id="category_id" class="form-control" required>
-                                {{-- @foreach ($categories as $category) --}}
-                                    
-                                <option value="{{ $subcategory->id }}">{{ $subcategory->title }}</option>
-                                {{-- @endforeach --}}
+                            <select name="category_id" id="category_id" class="form-control" required>
+                                <option value="">Please Select</option>
+                                @foreach ($categories as $category)
+                                <option @if($subcategory->category_id == $category->id) selected @endif value="{{ $category->id }}">{{ $category->title }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <!--end::Col-->

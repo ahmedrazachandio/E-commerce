@@ -13,7 +13,7 @@
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
                     <a href="../../demo49/dist/index.html"
-                        class="text-muted text-hover-primary">Subcategories</a>
+                        class="text-muted text-hover-primary">Users</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -30,8 +30,8 @@
         <!--end::Page title-->
         <!--begin::Actions-->
         <div class="d-flex align-items-center gap-2 gap-lg-3">
-            <a href="/subcategories/create"
-                class="btn btn-flex btn-outline btn-color-gray-700 btn-active-color-primary bg-body h-40px fs-7 fw-bold">Create Subcategories</a>
+            <a href="/users/create"
+                class="btn btn-flex btn-outline btn-color-gray-700 btn-active-color-primary bg-body h-40px fs-7 fw-bold">Create users</a>
             </div>
             <!--end::Actions-->
     </div>
@@ -40,7 +40,7 @@
     <div class="card-header card-header-stretch">
         <!--begin::Title-->
         <div class="card-title">
-            <h3>Subcategories</h3>
+            <h3>Users</h3>
         </div>
         <!--end::Title-->
     </div>
@@ -55,10 +55,10 @@
                 <thead class="border-gray-200 fs-5 fw-semibold bg-lighten">
                     <tr>
                         <th class="min-w-150px ps-9">S.no</th>
-                        <th class="min-w-250px px-0">Title</th>
-                        <th class="min-w-100px">Slug</th>
-                        <th class="min-w-150px">Category Id</th>
-                        <th class="min-w-100px">Status</th>
+                        <th class="min-w-250px px-0">Fullname</th>
+                        <th class="min-w-100px">email</th>
+                        {{-- <th class="min-w-100px">Status</th> --}}
+                        {{-- <th class="min-w-100px">Status</th> --}}
                         <th class="w-100px">Action</th>
                         <th class="w-100px"></th>
                     </tr>
@@ -66,26 +66,22 @@
                 <!--end::Thead-->
                 <!--begin::Tbody-->
                 <tbody class="fs-6 fw-semibold text-gray-600">
-                    @foreach ($subcategories as $subcategory)
-                    @php
-                        $category = \App\Models\Category::find($subcategory->category_id);
-                    @endphp
+                    @foreach ($users as $user)
                     <tr>
-                        <td class="ps-9">{{++$i}}</td>
-                        <td data-bs-target="license" class="ps-0">{{$subcategory->title}}</td>
-                        <td data-bs-target="license" class="ps-0">{{$subcategory->slug}}</td>
-                        <td data-bs-target="license" class="ps-0">{{$category->title}}</td>
+                        <td class="ps-9">{{ ++$i }}</td>
+                        <td data-bs-target="license" class="ps-0">{{$user->fullname}}</td>
+                        <td data-bs-target="license" class="ps-0">{{$user->email}}</td>
                       
                         
-                        <td>{{ $subcategory->status == 1 ? "Active" :"Deactive" }}</td>
+                        {{-- <td>{{ $user->status == 1 ? "Active" :"Deactive" }}</td> --}}
                         {{-- <span class="badge badge-light-success fs-7 fw-semibold">Active</span> : <span class="badge badge-light-danger fs-7 fw-semibold">Inactive</span> --}}
                             
                         
                        
                         <td class="pe-9">
                             <div class="w-200px position-relative">
-                                    <form action="{{ route('subcategories.destroy',$subcategory->id) }}" method="POST">
-                                            <a class="btn btn-warning" href="{{ route('subcategories.edit',$subcategory->id) }}"> Edit</a>
+                                    <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+                                            <a class="btn btn-warning" href="{{ route('users.edit',$user->id) }}"> Edit</a>
                                             <button class="btn btn-danger" type="submit">Delete</button>                                           
                                             @csrf
                                             @method('DELETE')

@@ -13,7 +13,7 @@
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
                     <a href="../../demo49/dist/index.html"
-                        class="text-muted text-hover-primary">Home</a>
+                        class="text-muted text-hover-primary">Products</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -22,7 +22,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Create</li>
+                <li class="breadcrumb-item text-muted">home</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -40,7 +40,7 @@
     <div class="card-header card-header-stretch">
         <!--begin::Title-->
         <div class="card-title">
-            <h3>products</h3>
+            <h3>Products</h3>
         </div>
         <!--end::Title-->
     </div>
@@ -70,13 +70,16 @@
                 <!--begin::Tbody-->
                 <tbody class="fs-6 fw-semibold text-gray-600">
                     @foreach ($products as $product)
+                    @php
+                    $category = \App\Models\Category::find($product->category);
+                    @endphp
                     <tr>
                         <td class="ps-9">{{$i ++}}</td>
                         <td class="ps-0">{{$product->product_name}}</td>
                         <td class="ps-0">{{$product->sku}}</td>
                         <td class="ps-0">{{$product->description}}</td>
                         <td class="ps-0">{{$product->price}}</td>
-                        <td class="ps-0">{{$product->category}}</td>
+                        <td class="ps-0">{{$category->title}}</td>
                         <td class="ps-0">{{$product->featured}}</td>
                       
                         
