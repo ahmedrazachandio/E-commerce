@@ -18,11 +18,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
-  
+
 Route::resource('products', ProductController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('subcategories', SubcategoryController::class);
 Route::resource('users', UserController::class);
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin.index');
 
 Route::get('/', function () {
     return view('welcome');
