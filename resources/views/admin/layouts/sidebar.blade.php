@@ -14,37 +14,39 @@
             <div class="menu-item">
                 <!--begin:Menu content-->
                 <div class="menu-content">
-                    <a href="/categories" class="text-dark">
-                        <span class="menu-section fs-5 fw-bolder ps-1 py-1">Categories</span>
-                    </a>
-                </div>
-                <!--end:Menu content-->
-                <!--begin:Menu content-->
-                <div class="menu-content">
-                    <a href="/subcategories" class="text-dark">
-                        <span class="menu-section fs-5 fw-bolder ps-1 py-1">Subcategories</span>
-                    </a>
-                </div>
-                <!--end:Menu content-->
-                <!--begin:Menu content-->
-                <div class="menu-content" class="text-dark">
-                    <a href="/products" class="text-dark">
-                        <span class="menu-section fs-5 fw-bolder ps-1 py-1">Products</span>
-                    </a>
-                </div>
-                <!--end:Menu content-->
-                <!--begin:Menu content-->
-                <div class="menu-content">
-                    <a href="/users" class="text-dark">
-                        <span class="menu-section fs-5 fw-bolder ps-1 py-1">Users</span>
-                    </a>
+                    <span class="menu-section fs-5 fw-bolder ps-1 py-1">Home</span>
                 </div>
                 <!--end:Menu content-->
             </div>
             <!--end:Menu item-->
 
-            
-          
+            <!--begin:Menu item-->
+            <div class="menu-item">
+                <!--begin:Menu link-->
+                <a class="menu-link {{ Route::currentRouteName() == 'admin.index' ? 'active' : '' }} "
+                    href="{{ route('admin.index') }}">
+                    <span class="menu-bullet">
+                        <span class="bullet bullet-dot"></span>
+                    </span>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+                <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+            <!--begin:Menu item-->
+            <div class="menu-item">
+                <!--begin:Menu link-->
+                <a class="menu-link {{ Route::currentRouteName() == 'categories.index' ? 'active' : '' }} "
+                    href="{{ route('categories.index') }}">
+                    <span class="menu-bullet">
+                        <span class="bullet bullet-dot"></span>
+                    </span>
+                    <span class="menu-title">Category</span>
+                </a>
+                <!--end:Menu link-->
+            </div>
+            <!--end:Menu item-->
+
             <!--begin:Menu item-->
             {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                 <!--begin:Menu link-->
